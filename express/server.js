@@ -1,9 +1,19 @@
 'use strict';
+const dotenv = require('dotenv');
 const express = require('express');
 const path = require('path');
 const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
+
+const sherpabot = require("./sherpabot");
+
+const result = dotenv.config({ path: './.env' });
+if (result.error) {
+  throw result.error
+}
+
+sherpabot();
 
 const router = express.Router();
 router.get('/', (req, res) => {
