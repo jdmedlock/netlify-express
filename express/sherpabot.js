@@ -26,7 +26,7 @@ async function sherpabot() {
       case '':
       case 'cmds':
       case 'help':
-        msg.reply(` __**Sherpa Commands:**__ \
+        await msg.reply(` __**Sherpa Commands:**__ \
           \n\`${commandPrefix}    \` - List Sherpa commands \
           \n\`${commandPrefix}help\` - List Sherpa commands \
           \n\`${commandPrefix}cmds\` - List Sherpa commands \
@@ -41,31 +41,32 @@ async function sherpabot() {
       // Display documentation URL's
       case 'doc':
         if (args.length === 0) {
-          msg.reply('https://docs.chingu.io');
+          await msg.reply('https://docs.chingu.io');
         }
         else if (args[0] === 'chingu') {
-          msg.reply('https://chingu.docs.chingu.io');
+          await msg.reply('https://chingu.docs.chingu.io');
         }
         else if (args[0] === 'voyage') {
-          msg.reply('https://voyage.docs.chingu.io');
+          await msg.reply('https://voyage.docs.chingu.io');
         }
         else if (args[0] === 'pair') {
-          msg.reply('https://pairprog.docs.chingu.io');
+          await msg.reply('https://pairprog.docs.chingu.io');
         }
         else if (args[0] === 'tech') {
-          msg.reply('https://techres.docs.chingu.io');
+          await msg.reply('https://techres.docs.chingu.io');
         }
         else if (args[0] === 'proj') {
-          msg.reply('https://projres.docs.chingu.io');
+          await msg.reply('https://projres.docs.chingu.io');
         }
         break;
       // If command was unrecognized...
       default:
-        msg.reply('You have entered and invalid command. Try `sherpa!` if you \
+        await msg.reply('You have entered and invalid command. Try `sherpa!` if you \
 want to see a list of available commands.');
     }
   });
 
+  console.log(`DISCORD_TOKEN:${process.env.DISCORD_TOKEN}`);
   await client.login(process.env.DISCORD_TOKEN);
 };
 
