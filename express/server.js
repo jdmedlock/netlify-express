@@ -11,13 +11,11 @@ const router = express.Router();
 
 
 const result = dotenv.config();
-/*
 if (result.error) {
   throw result.error
 }
 
-sherpabot();
-*/
+//sherpabot();
 
 router.get('/', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' });
