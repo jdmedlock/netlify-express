@@ -1,10 +1,16 @@
 const Discord = require('discord.js');
 
 async function sherpabot() {
+  console.log('Entered sherpabot()...');
   const client = new Discord.Client();
+  console.log('...Logged in');
 
-  client.on('ready', () => {
-    console.log(`Logged in as ${client.user.tag}!`);
+  client.on('error', async (error) => {
+    console.log('...An error has occurred: ', error);
+  });
+
+  client.on('ready', async () => {
+    console.log(`Ready as ${client.user.tag}!`);
   });
 
   client.on('message', async msg => {
@@ -68,6 +74,7 @@ want to see a list of available commands.');
 
   console.log(`DISCORD_TOKEN:${process.env.DISCORD_TOKEN}`);
   await client.login(process.env.DISCORD_TOKEN);
+  console.log('Exiting sherpabot...');
 };
 
 module.exports = sherpabot;
