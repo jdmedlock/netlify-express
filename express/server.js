@@ -9,8 +9,9 @@ const sherpabot = require("./sherpabot");
 const app = express();
 const router = express.Router();
 
-/*
+
 const result = dotenv.config();
+/*
 if (result.error) {
   throw result.error
 }
