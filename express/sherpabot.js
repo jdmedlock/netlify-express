@@ -1,3 +1,4 @@
+const serverless = require('serverless-http');
 const Discord = require('discord.js');
 
 async function sherpabot() {
@@ -74,7 +75,7 @@ want to see a list of available commands.');
 
   console.log(`DISCORD_TOKEN:${process.env.DISCORD_TOKEN}`);
   await client.login(process.env.DISCORD_TOKEN);
-  console.log('Exiting sherpabot...');
 };
 
 module.exports = sherpabot;
+module.exports.handler = serverless(sherpabot);
