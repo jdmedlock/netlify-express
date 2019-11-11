@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
-const sherpabot = require("./sherpabot");
+const sherpabot = require("../functions/sherpabot");
 
 const app = express();
 const router = express.Router();
