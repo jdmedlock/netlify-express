@@ -1,5 +1,5 @@
 'use strict';
-const dotenv = require('dotenv');
+//const dotenv = require('dotenv');
 const express = require('express');
 const path = require('path');
 const serverless = require('serverless-http');
@@ -8,11 +8,12 @@ const sherpabot = require("./sherpabot");
 
 const app = express();
 const router = express.Router();
-
+/*
 const result = dotenv.config();
 if (result.error) {
   throw result.error
 }
+*/
 sherpabot().then((value) => {
   router.get('/', (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html' });
